@@ -1,6 +1,7 @@
 import CleanData as clean
 import Descript_Stats as descr_stats
 
+
 def run(file: str):
     
     """
@@ -50,10 +51,11 @@ def run(file: str):
     var = descr_stats.variance(data)
     print(f'\n\tHR Variance: ', f'{var:.2f}')
 
+    challenge = descr_stats.variance_challenge(data)
+    print(challenge)
+
 if __name__ == "__main__":
     run("data/phase0.txt")
     run("data/phase1.txt")
     run("data/phase2.txt")
     run("data/phase3.txt")
-
-

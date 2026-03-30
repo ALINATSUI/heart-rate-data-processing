@@ -1,6 +1,7 @@
 import statistics as stats
 import CleanData as clean
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def average(data: list) -> float:
@@ -48,7 +49,22 @@ def rolling_avg(data: list, k: int) -> float:
         roll_avg = i/k
     return roll_avg    
 
-#def plot(data: list):
-    #fig, ax = plt.subplots() 
+def variance_challenge(data: list) -> int:
+    
+    filtered, bad_values = clean.clean_heartrate_data(data) # I'm not sure if the list of integers for the challenge is linked to the heartrate files or not. 
+    new_filtered = list(filtered)
+    input_values = np.array(new_filtered)
+    some_variance = stats.variance(input_values)
+    
+    return some_variance
 
+#     fig, ax = plt.subplots()
+#     ax.tick_params(labelsize=14)
+#     ax.set_title("HR Variance", fontsize=24)
+#     ax.set_xlabel("Variance Values", fontsize=10)
+#     # ax.set_ylabel("Values", fontsize=10)
+#     ax.plot(some_variance,ls = '--', linewidth=20)
+   
+#     # plt.savefig('/images/Variance_Challenge.png') #Wasn't sure if we were supposed to use relative or absolute path. If relative path, looks like we might have to use os.getcwd() method and that's where I got stuck. 
+#     plt.show()
 
